@@ -14,7 +14,7 @@
         text-align: center;
         padding: 10px;
         color: white;
-        height: 200px;
+        height: 250px;
         width: 500px;
         margin: 0 auto;
     }
@@ -24,8 +24,10 @@
             $("#sub").click(function(){
 
                 var user_name = $("#name").val();
+                var user_email = $("#email").val();
+                var user_pass = $("#pass").val();
 
-                $.get("test.php", {name:user_name}, function(data){
+                $.post("test.php", {name:user_name,email:user_email,pass:user_pass}, function(data){
                     $("#result").html(data);
 
                 });
@@ -40,6 +42,8 @@
 <div id="box">
 <h2>New User Register Here: </h2>
     <input type="text" name="name" id="name" placeholder="Enter your name here!"><br>
+    <input type="text" name="email" id="email" placeholder="Enter your email here!"><br>
+    <input type="password" name="pass" id="pass" placeholder="Enter your pass here!"><br>
     <input type="submit" name="sub" value="Submit" id="sub">
     <div id="result"></div>
 </div>
